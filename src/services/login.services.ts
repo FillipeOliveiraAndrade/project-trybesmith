@@ -1,5 +1,5 @@
 import generateToken from '../../utils/jwt';
-import { ILogin } from '../interfaces/login.interface';
+import { ILogin, ILoginService } from '../interfaces/login.interface';
 import connection from '../models/connection';
 import LoginModel from '../models/login.models';
 
@@ -10,7 +10,7 @@ class LoginService {
     this.model = new LoginModel(connection);
   }
 
-  public async login(user: ILogin) {
+  public async login(user: ILogin): Promise<ILoginService> {
     const [fieldUser] = await this.model.login(user);
     
     if (!fieldUser) {
