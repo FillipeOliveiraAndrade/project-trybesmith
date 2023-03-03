@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { IUser } from '../src/interfaces/user.interface';
+import { IJwt } from '../src/interfaces/user.interface';
 
 dotenv.config();
 
 const secret = 'secret';
 
-const generateToken = (user: IUser): string => {
+const generateToken = (user: IJwt): string => {
   const jwtConfig = {
     expiresIn: '1d',
   };

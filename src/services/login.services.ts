@@ -17,7 +17,7 @@ class LoginService {
       return { type: 'INVALID_DATA', message: 'Username or password invalid' };
     }
 
-    const token = generateToken(user);
+    const token = generateToken({ ...fieldUser });
 
     return { type: null, message: token };
   }
